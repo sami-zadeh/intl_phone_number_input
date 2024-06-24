@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
               formatInput: true,
               keyboardType:
                   TextInputType.numberWithOptions(signed: true, decimal: true),
-              inputBorder: OutlineInputBorder(),
+              inputBorder: InputBorder.none,
               onSaved: (PhoneNumber number) {
                 print('On Saved: $number');
               },

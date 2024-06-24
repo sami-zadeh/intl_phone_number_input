@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl_phone_number_input/src/constants/widget_color.dart';
 import 'package:intl_phone_number_input/src/models/country_model.dart';
 import 'package:intl_phone_number_input/src/utils/util.dart';
 
@@ -11,6 +12,7 @@ class Item extends StatelessWidget {
   final bool withCountryNames;
   final double? leadingPadding;
   final bool trailingSpace;
+  final double? iconSize;
 
   const Item({
     Key? key,
@@ -21,6 +23,7 @@ class Item extends StatelessWidget {
     this.withCountryNames = false,
     this.leadingPadding = 12,
     this.trailingSpace = true,
+    this.iconSize,
   }) : super(key: key);
 
   @override
@@ -40,12 +43,17 @@ class Item extends StatelessWidget {
             showFlag: showFlag,
             useEmoji: useEmoji,
           ),
-          SizedBox(width: 12.0),
-          Text(
-            '$dialCode',
-            textDirection: TextDirection.ltr,
-            style: textStyle,
-          ),
+          SizedBox(width: 8.0),
+          Icon(
+            Icons.keyboard_arrow_down_rounded,
+            size: iconSize,
+            color: WidgetColor.textColor,
+          )
+          // Text(
+          //   '$dialCode',
+          //   textDirection: TextDirection.ltr,
+          //   style: textStyle,
+          // ),
         ],
       ),
     );
@@ -71,7 +79,7 @@ class _Flag extends StatelessWidget {
                   )
                 : Image.asset(
                     country!.flagUri,
-                    width: 32.0,
+                    width: 50.0,
                     package: 'intl_phone_number_input',
                     errorBuilder: (context, error, stackTrace) {
                       return SizedBox.shrink();
